@@ -6,10 +6,11 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Dimensions,
   Image,
+  Modal,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -21,10 +22,13 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+
 /**
  * Main component for the MyTimer app.
  */
 function App(): JSX.Element {
+  const [isLoading, setIsLoading] = useState(false);
+
   const backgroundStyle = {
     backgroundColor: '#F6FAF6',
     flex: 1,
@@ -97,11 +101,21 @@ return (
               {/* Footer text */}
               <View style={styles.footerTextContainer}>
                 <Text style={styles.footerText}>צריך עזרה?</Text>
-                <Text style={styles.footerText2}>יצירת קשר עם התמיכה</Text>
+                <Text style={styles.help}>יצירת קשר עם התמיכה</Text>
               </View>
             </View>
           </View>
         </View>
+
+        {/* Modal */}
+        <Modal visible={isLoading} transparent={true}>
+          <View style={styles.modalContainer}>
+            <Image
+              source={require('./assets/loader.gif')}
+              style={styles.loader}
+            />
+          </View>
+        </Modal>
       </SafeAreaView>
     </TouchableWithoutFeedback>
 
@@ -199,9 +213,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000000',
   },
-  footerText2: {
+  help: {
     fontSize: 17,
-    fontWeight: 'bold',
     color: '#0000FF',
   },
   icon: {
@@ -235,6 +248,16 @@ const styles = StyleSheet.create({
     height: 24,
     backgroundColor: 'transparent',
     tintColor: '#FFFFFF',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  loader: {
+    width: 50,
+    height: 50,
   },
 });
 
