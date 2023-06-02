@@ -26,7 +26,7 @@ import LinearGradient from 'react-native-linear-gradient';
 /**
  * Main component for the MyTimer app.
  */
-function App(): JSX.Element {
+function MyTimerApp(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
 
   const backgroundStyle = {
@@ -261,4 +261,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default MyTimerApp;
