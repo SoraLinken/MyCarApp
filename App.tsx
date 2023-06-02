@@ -1,6 +1,7 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * MyTimer App
+ * 
+ * https://github.com/SoraLinken/MyTimer
  *
  * @format
  */
@@ -20,6 +21,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+/**
+ * Main component for the MyTimer app.
+ */
 function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: '#F6FAF6',
@@ -35,16 +39,23 @@ const dismissKeyboard = (): void => {
 return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView style={backgroundStyle}>
+        {/* Header */}
         <View style={styles.headerContainer}>
           <View style={styles.logoContainer}>
             <Image source={require('./assets/logoMyCar.png')} style={styles.logo} />
           </View>
         </View>
+
+        {/* Main Content */}
         <View style={styles.rootContainer}>
           <View style={styles.mainContainer}>
+
+            {/* Input label */}
             <Text style={styles.labelText}>
               להתחברות לאפלקציית אמדוקס אנא הזינו את מספר הטלפון והמייל שלכם
             </Text>
+
+            {/* Phone number input */}
             <View style={styles.iconWithInput}>
               <TextInput
                 style={styles.input}
@@ -55,6 +66,8 @@ return (
               />
               <Image source={require('./assets/callSquare.png')} style={styles.icon} />
             </View>
+
+            {/* Email input */}
             <View style={styles.iconWithInput}>
               <TextInput
                 style={styles.input}
@@ -64,6 +77,8 @@ return (
               />
               <Image source={require('./assets/messageSquare.png')} style={styles.icon} />
             </View>
+
+            {/* Footer */}
             <View style={styles.footerContainer}>
               <Pressable style={styles.button}>
                 <LinearGradient
@@ -78,6 +93,8 @@ return (
                   />
                 </LinearGradient>
               </Pressable>
+
+              {/* Footer text */}
               <View style={styles.footerTextContainer}>
                 <Text style={styles.footerText}>צריך עזרה?</Text>
                 <Text style={styles.footerText2}>יצירת קשר עם התמיכה</Text>
